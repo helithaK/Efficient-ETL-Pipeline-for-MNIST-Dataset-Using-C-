@@ -1,12 +1,16 @@
 #include "data.hpp"
 
+
+
+//The constructor initializes the feature_vector pointer by dynamically allocating a 
+//new std::vector<uint8_t> (a vector that stores 8-bit unsigned integers).
 data::data()
 {
     feature_vector = new std::vector<uint8_t>;
 }
 data::~data()
 {
-    
+
 }
 
 void data::set_feature_vector(std::vector<uint8_t> *vect)
