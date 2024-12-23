@@ -29,6 +29,7 @@ void data_handler::read_feature_vector(std::string path)
     {
         for(int i = 0; i<4; i++)
         {
+            //Reads the first four bytes
             if (fread(bytes, sizeof(bytes), 1, f))
             {
                 header[i] = convert_to_little_endian(bytes);
@@ -42,6 +43,7 @@ void data_handler::read_feature_vector(std::string path)
             uint8_t element[1];
             for (int j = 0; j< image_size; j++)
             {
+                //Reads one byte (a pixel value) from the file into element.
                 if ( fread(element, sizeof(element), 1, f))
                 {
                     d->append_to_feature_vector(element[0]);
@@ -52,6 +54,7 @@ void data_handler::read_feature_vector(std::string path)
                     exit(1);
                 }
             }
+            //collection of all images.
             data_array->push_back(d);
          
         }
